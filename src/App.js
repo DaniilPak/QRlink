@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
 
-function App() {
+const App = () => {
+
+  const appStoreLink = 'https://itunes.apple.com/app/your-ios-app-link';
+  const googlePlayLink = 'https://play.google.com/store/apps/details?id=your.android.app.package';
+
+  useEffect(() => {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+    const isAndroid = /android/i.test(userAgent);
+
+    if (isIOS) {
+      window.location.href = appStoreLink; // Replace with your iOS app link
+    } else if (isAndroid) {
+      window.location.href = googlePlayLink; // Replace with your Android app package name
+    }
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Redirecting...</h1>
+      <p>If you are not redirected, please click the appropriate link below:</p>
+      <p>
+        <a href={appStoreLink}>iOS App Store</a>
+      </p>
+      <p>
+        <a href={googlePlayLink}>Google Play Store</a>
+      </p>
     </div>
   );
-}
+};
 
 export default App;
