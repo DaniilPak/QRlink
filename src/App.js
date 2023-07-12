@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 
 const App = () => {
 
-  const appStoreLink = 'https://itunes.apple.com/app/your-ios-app-link';
-  const googlePlayLink = 'https://play.google.com/store/apps/details?id=your.android.app.package';
+  const appStoreLink = 'https://apps.apple.com/us/app/loyalclub/id6450631748';
+  const googlePlayLink = 'https://play.google.com/store/apps/details?id=com.loyalclub';
 
   useEffect(() => {
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
